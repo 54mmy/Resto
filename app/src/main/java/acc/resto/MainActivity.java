@@ -20,6 +20,11 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(MainActivity.this, SplashScreen.class);
         startActivity(intent);
 
+<<<<<<< HEAD
+=======
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
+>>>>>>> origin/master
     }
     @Override
     protected void onResume() {
