@@ -60,9 +60,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id">
-            </meta-data>
+
         <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.ParseBroadcastReceiver">
             <intent-filter>
@@ -85,15 +83,21 @@
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 </manifest>
 =======
+=======
+>>>>>>> origin/master
                 <!--
                   IMPORTANT: Change "com.parse.starter" to match your app's package name.
                 -->
+=======
+
+>>>>>>> origin/master
                 <category android:name="acc.theverge" />
             </intent-filter>
         </receiver>
 
     </application>
 </manifest>
->>>>>>> origin/master
