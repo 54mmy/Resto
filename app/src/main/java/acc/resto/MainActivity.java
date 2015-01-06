@@ -1,18 +1,9 @@
 package acc.resto;
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
 import android.content.Intent;
-import android.app.Activity;
-<<<<<<< HEAD
->>>>>>> origin/master
 =======
 import android.app.Activity;
->>>>>>> origin/master
-=======
 >>>>>>> origin/master
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -21,13 +12,8 @@ import android.view.MenuItem;
 
 import com.facebook.AppEventsLogger;
 import com.parse.Parse;
-<<<<<<< HEAD
 
 
-=======
-
-
->>>>>>> origin/master
 public class MainActivity extends Activity {
 
     @Override
@@ -35,23 +21,12 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
         Intent intent = new Intent(MainActivity.this, SplashScreen.class);
         startActivity(intent);
-
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
-<<<<<<< HEAD
->>>>>>> origin/master
 =======
 
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
->>>>>>> origin/master
-=======
 >>>>>>> origin/master
     }
     @Override

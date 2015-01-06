@@ -5,18 +5,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_user_visits">UserVisits</string>
-    <string name="facebook_app_id">1548967088695066</string>
-<<<<<<< HEAD
->>>>>>> origin/master
+
 =======
     <string name="facebook_app_id">1548967088695066</string>
->>>>>>> origin/master
-=======
 >>>>>>> origin/master
 </resources>
