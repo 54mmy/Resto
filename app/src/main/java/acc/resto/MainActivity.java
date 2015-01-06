@@ -1,19 +1,48 @@
 package acc.resto;
 
-import android.support.v7.app.ActionBarActivity;
+<<<<<<< HEAD
+import android.content.Intent;
+=======
+import android.app.Activity;
+>>>>>>> origin/master
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.AppEventsLogger;
+import com.parse.Parse;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+<<<<<<< HEAD
+        Intent intent = new Intent(MainActivity.this, SplashScreen.class);
+        startActivity(intent);
+=======
 
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
+>>>>>>> origin/master
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
