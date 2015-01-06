@@ -11,8 +11,10 @@ import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.model.GraphUser;
+import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +28,6 @@ public class Record extends Activity{
         if(session!=null && session.isOpened())
         {
             makeMeRequest();
-            startNextActivity();
         }
     }
     private void makeMeRequest()
@@ -36,23 +37,39 @@ public class Record extends Activity{
             public void onCompleted(GraphUser user, Response response) {
                 if(user!=null)
                 {
-                    JSONObject jsonObject = new JSONObject();
+                    ParseUser parseUser = new ParseUser();
+    //                JSONObject jsonObject = new JSONObject();
+                    ParseUser currentUser = ParseUser.getCurrentUser();
+
                     try{
-                        jsonObject.put("facebook id",user.getId());
-                        jsonObject.put("Name",user.getName());
+    //                    jsonObject.put("facebook id",user.getId());
+    //                    jsonObject.put("Name",user.getName());
+                        parseUser.setUsername(user.getUsername());
+                        parseUser.setPassword("");
+                        parseUser.put("Name",user.getName());
 
                         if(user.getLocation().getProperty("name")!=null){
-                            jsonObject.put("location",(String) user.getLocation().getProperty("name"));
+    //                        jsonObject.put("location",(String) user.getLocation().getProperty("name"));
+                            parseUser.put("location",(String) user.getLocation().getProperty("name"));
                         }
                         if (user.getProperty("email") != null) {
-                            jsonObject.put("email", user.getProperty("email"));
+   //                         jsonObject.put("email", user.getProperty("email"));
+                            parseUser.put("email", user.getProperty("email"));
                         }
 
-                        ParseUser currentUser = ParseUser.getCurrentUser();
-                        currentUser.put("profile",jsonObject);
-                        currentUser.saveInBackground();
+    //                    currentUser.put("profile",jsonObject);
+    //                    currentUser.saveInBackground();
+                        parseUser.signUpInBackground(new SignUpCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e == null)
+                                {
+                                    startNextActivity();
+                                }
+                            }
+                        });
 
-                    } catch (JSONException e) {
+                    } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Error Parsing Info", Toast.LENGTH_LONG).show();
                     }
 
