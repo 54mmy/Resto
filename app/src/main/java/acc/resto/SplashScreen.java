@@ -8,7 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 
 public class SplashScreen extends ActionBarActivity {
 
-    private static int SPLASH_TIME_OUT = 15000;
+    private static int SPLASH_TIME_OUT = 10000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
