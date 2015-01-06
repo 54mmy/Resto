@@ -1,5 +1,6 @@
 package acc.resto;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
@@ -20,7 +22,7 @@ import com.parse.ParseUser;
 import java.util.List;
 import java.util.Arrays;
 
-public class LoginActivity extends FragmentActivity {
+public class LoginActivity extends Activity {
 
     private EditText editText;
     private Dialog progressDialog;
@@ -31,6 +33,10 @@ public class LoginActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.login);
+
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
+
         editText = (EditText) findViewById(R.id.editText);
 
         ParseUser currentUser = ParseUser.getCurrentUser();
@@ -48,7 +54,7 @@ public class LoginActivity extends FragmentActivity {
     public void OnClick(View v)
     {
 
-        String mNumber = editText.getText().toString();
+        final String mNumber = editText.getText().toString();
         progressDialog = ProgressDialog.show(LoginActivity.this, "", "Logging IN..", true);
         List<String> permissions = Arrays.asList("public_profile","user_location","email");
 
@@ -63,6 +69,9 @@ public class LoginActivity extends FragmentActivity {
                 else if (parseUser.isNew())
                 {
                     Toast.makeText(getApplicationContext(), "Logged IN", Toast.LENGTH_LONG).show();
+                    ParseUser p = new ParseUser();
+                    p.put("number", mNumber);
+                    p.saveInBackground();
                     getData();
                 }
                 else

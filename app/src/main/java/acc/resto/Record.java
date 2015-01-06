@@ -30,6 +30,23 @@ public class Record extends Activity{
             startNextActivity();
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            // Check if the user is currently logged
+            // and show any cached content
+            startNextActivity();
+        } else {
+            // If the user is not logged in, go to the
+            // activity showing the login view.
+            startLoginActivity();
+        }
+    }
+
     private void makeMeRequest()
     {
         Request request = Request.newMeRequest(ParseFacebookUtils.getSession(), new Request.GraphUserCallback() {
@@ -47,13 +64,14 @@ public class Record extends Activity{
                         parseUser.setPassword("");
                         parseUser.put("Name",user.getName());
 
+
                         if(user.getLocation().getProperty("name")!=null){
     //                        jsonObject.put("location",(String) user.getLocation().getProperty("name"));
-                            parseUser.put("location",(String) user.getLocation().getProperty("name"));
+                            parseUser.put("location",(String) response.getGraphObject().getProperty("location"));
                         }
                         if (user.getProperty("email") != null) {
    //                         jsonObject.put("email", user.getProperty("email"));
-                            parseUser.put("email", user.getProperty("email"));
+                            parseUser.put("email", (String) response.getGraphObject().getProperty("email"));
                         }
 
     //                    currentUser.put("profile",jsonObject);
@@ -87,6 +105,12 @@ public class Record extends Activity{
     private void startNextActivity()
     {
         Intent intent = new Intent(this,UserVisits.class);
+        startActivity(intent);
+    }
+    private void startLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 }
