@@ -19,8 +19,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         Intent intent = new Intent(MainActivity.this, SplashScreen.class);
         startActivity(intent);
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
+
     }
     @Override
     protected void onResume() {

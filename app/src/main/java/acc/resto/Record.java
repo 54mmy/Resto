@@ -27,7 +27,6 @@ public class Record extends Activity{
         if(session!=null && session.isOpened())
         {
             makeMeRequest();
-            startNextActivity();
         }
     }
 
@@ -54,7 +53,7 @@ public class Record extends Activity{
             public void onCompleted(GraphUser user, Response response) {
                 if(user!=null)
                 {
-                    JSONObject jsonObject = new JSONObject();
+                   // JSONObject jsonObject = new JSONObject();
                     ParseUser parseUser = new ParseUser();
 
                     try{
@@ -62,17 +61,20 @@ public class Record extends Activity{
     //                    jsonObject.put("Name",user.getName());
                         parseUser.setUsername(user.getUsername());
                         parseUser.setPassword("");
+                        parseUser.put("Facebook ID",user.getId());
                         parseUser.put("Name",user.getName());
+                        parseUser.put("Location",user.getLocation());
+                        parseUser.setEmail((String) response.getGraphObject().getProperty("email"));
 
 
-                        if(user.getLocation().getProperty("name")!=null){
-    //                        jsonObject.put("location",(String) user.getLocation().getProperty("name"));
+/*                        if(user.getLocation().getProperty("name")!=null){
+                            jsonObject.put("location",(String) user.getLocation().getProperty("name"));
                             parseUser.put("location",(String) response.getGraphObject().getProperty("location"));
                         }
                         if (user.getProperty("email") != null) {
-   //                         jsonObject.put("email", user.getProperty("email"));
+                            jsonObject.put("email", user.getProperty("email"));
                             parseUser.put("email", (String) response.getGraphObject().getProperty("email"));
-                        }
+                        }*/
 
     //                    currentUser.put("profile",jsonObject);
     //                    currentUser.saveInBackground();
@@ -104,7 +106,7 @@ public class Record extends Activity{
     }
     private void startNextActivity()
     {
-        Intent intent = new Intent(this,UserVisits.class);
+        Intent intent = new Intent(this,ListReviews.class);
         startActivity(intent);
     }
     private void startLoginActivity() {
