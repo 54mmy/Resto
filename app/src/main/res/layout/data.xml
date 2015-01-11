@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dish1"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:src="@drawable/ic_restaurant49"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/dish"
+        android:textColor="#FFA633"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/dish1"
+        android:paddingTop="15dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/review"
+        android:textColor="#646464"
+        android:paddingBottom="15dp"
+        android:layout_below="@+id/dish"
+        android:layout_alignLeft="@+id/dish"
+        android:layout_alignStart="@+id/dish" />
+
+</RelativeLayout>
