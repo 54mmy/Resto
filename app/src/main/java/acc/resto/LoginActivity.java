@@ -17,9 +17,8 @@ import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
-import java.util.List;
 import java.util.Arrays;
-import java.util.Vector;
+import java.util.List;
 
 import acc.resto.Adapter.ScreenSlidePagerAdapter;
 
@@ -108,7 +107,7 @@ public class LoginActivity extends FragmentActivity {
     }
     public void showAct()
     {
-        Intent intent = new Intent(this,ListReviews.class);
+        Intent intent = new Intent(this,UserVisits.class);
         startActivity(intent);
     }
 }

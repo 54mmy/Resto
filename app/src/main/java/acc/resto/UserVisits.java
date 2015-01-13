@@ -39,25 +39,6 @@ public class UserVisits extends Fragment {
 
         return view;
     }
-/*
-    @Override
-    private void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_visits);
-
-        one = (Button) findViewById(R.id.one);
-        two = (Button) findViewById(R.id.two);
-        three = (Button) findViewById(R.id.three);
-        four = (Button) findViewById(R.id.four);
-        five = (Button) findViewById(R.id.five);
-        six = (Button) findViewById(R.id.six);
-        seven = (Button) findViewById(R.id.seven);
-        eight = (Button) findViewById(R.id.eight);
-        nine = (Button) findViewById(R.id.nine);
-        ten = (Button) findViewById(R.id.ten);
-
-    }
-*/
 
 
     @Override
@@ -71,53 +52,52 @@ public class UserVisits extends Fragment {
         switch (count) {
             case 1:
                 one.setEnabled(true);
-                //one.setBackgroundColor(Color.WHITE);
                 break;
             case 2:
                 one.setEnabled(false);
-                one.setBackgroundColor(Color.GRAY);
+                one.setBackgroundColor(Color.WHITE);
                 two.setEnabled(true);
                 break;
 
             case 3:
                 two.setEnabled(false);
-                two.setBackgroundColor(Color.GRAY);
+                two.setBackgroundColor(Color.WHITE);
                 three.setEnabled(true);
                 break;
 
             case 4:
                 three.setEnabled(false);
-                three.setBackgroundColor(Color.GRAY);
+                three.setBackgroundColor(Color.WHITE);
                 four.setEnabled(true);
                 break;
 
             case 5:
                 four.setEnabled(false);
-                four.setBackgroundColor(Color.GRAY);
+                four.setBackgroundColor(Color.WHITE);
                 five.setEnabled(true);
                 break;
 
             case 6:
                 five.setEnabled(false);
-                five.setBackgroundColor(Color.GRAY);
+                five.setBackgroundColor(Color.WHITE);
                 six.setEnabled(true);
                 break;
 
             case 7:
                 six.setEnabled(false);
-                six.setBackgroundColor(Color.GRAY);
+                six.setBackgroundColor(Color.WHITE);
                 seven.setEnabled(true);
                 break;
 
             case 8:
                 seven.setEnabled(false);
-                seven.setBackgroundColor(Color.GRAY);
+                seven.setBackgroundColor(Color.WHITE);
                 eight.setEnabled(true);
                 break;
 
             case 9:
                 eight.setEnabled(false);
-                eight.setBackgroundColor(Color.GRAY);
+                eight.setBackgroundColor(Color.WHITE);
                 nine.setEnabled(true);
                 break;
 
