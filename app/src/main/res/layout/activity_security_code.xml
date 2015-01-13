@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
+    android:id="@+id/securitycode"
+    tools:context="com.acc.resto.SecurityCode" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#FF7F00"
+        android:text="Enter Security Code"
+        android:id="@+id/textView"
+        android:layout_marginTop="59dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@drawable/edittext_bg"
+        android:id="@+id/code"
+        android:textColor="#FF7F00"
+        android:textSize="20dp"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <Button
+        android:id="@+id/one"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/round_button"
+        android:text="submit"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:textSize="20dp"
+        android:layout_below="@+id/code"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp" />
+
+</RelativeLayout>
