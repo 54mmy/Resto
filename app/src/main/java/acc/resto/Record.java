@@ -65,6 +65,7 @@ public class Record extends Activity{
                         parseUser.put("Name",user.getName());
                         parseUser.put("Location",user.getLocation());
                         parseUser.setEmail((String) response.getGraphObject().getProperty("email"));
+                        parseUser.put("Email",(String) response.getGraphObject().getProperty("email"));
 
 
 /*                        if(user.getLocation().getProperty("name")!=null){
@@ -106,7 +107,7 @@ public class Record extends Activity{
     }
     private void startNextActivity()
     {
-        Intent intent = new Intent(this,ListReviews.class);
+        Intent intent = new Intent(this,UserVisits.class);
         startActivity(intent);
     }
     private void startLoginActivity() {

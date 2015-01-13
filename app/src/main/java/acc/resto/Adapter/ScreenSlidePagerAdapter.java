@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.util.logging.Handler;
+
 import acc.resto.fragments.FragmentOne;
 import acc.resto.fragments.FragmentThree;
 import acc.resto.fragments.FragmentTwo;
@@ -36,4 +38,5 @@ public class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 3;
     }
+
 }

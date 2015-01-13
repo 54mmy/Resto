@@ -32,5 +32,16 @@
         android:layout_below="@+id/dish"
         android:layout_alignLeft="@+id/dish"
         android:layout_alignStart="@+id/dish" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/share"
+        android:background="#EFEFEF"
+        android:src="@drawable/ic_share11"
+        android:layout_marginRight="52dp"
+        android:layout_marginEnd="52dp"
+        android:layout_alignBottom="@+id/review"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>
