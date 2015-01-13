@@ -25,6 +25,7 @@ public class UserHome extends FragmentActivity {
     private UserPagerAdapter userPagerAdapter;
 
     public static String TAB_OFFERS_TITLE = "Offers";
+
     public static String TAB_MENU_TITLE = " Menu";
     public static String TAB_ABOUT_TITLE = "About";
     public static String TAB_VISITS_TITLE = "Visits";
