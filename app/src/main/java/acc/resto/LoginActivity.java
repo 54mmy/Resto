@@ -53,8 +53,8 @@ public class LoginActivity extends FragmentActivity {
 
         setContentView(R.layout.login);
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
+//        Parse.enableLocalDatastore(this);
+ //       Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
 
        // editText = (EditText) findViewById(R.id.editText);
 
@@ -118,11 +118,13 @@ public class LoginActivity extends FragmentActivity {
     {
         Intent intent = new Intent(this,Record.class);
         startActivity(intent);
+        finish();
     }
     public void showAct()
     {
         Intent intent = new Intent(this,UserHome.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

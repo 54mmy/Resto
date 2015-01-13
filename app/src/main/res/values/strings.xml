@@ -7,6 +7,7 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_user_visits">UserVisits</string>
     <string name="facebook_app_id">394279067406539</string>
+
     <string-array name="dishName">
         <item>Fish Cutlet</item>
         <item>Fish Fry</item>
@@ -16,4 +17,8 @@
         <item>Chicken Kebab</item>
         <item>Egg Curry</item>
     </string-array>
+
+    <string name="title_activity_security_code">SecurityCode</string>
+    <string name="title_activity_prize_win">PrizeWin</string>
+
 </resources>

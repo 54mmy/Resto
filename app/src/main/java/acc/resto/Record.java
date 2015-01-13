@@ -107,8 +107,9 @@ public class Record extends Activity{
     }
     private void startNextActivity()
     {
-        Intent intent = new Intent(this,UserVisits.class);
+        Intent intent = new Intent(this,UserHome.class);
         startActivity(intent);
+        finish();
     }
     private void startLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);

@@ -1,25 +1,36 @@
 package acc.resto;
 
-import android.content.Intent;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.facebook.AppEventsLogger;
-import com.parse.Parse;
 
 
 public class MainActivity extends Activity {
 
+    private static int SPLASH_TIME_OUT = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(MainActivity.this, SplashScreen.class);
-        startActivity(intent);
-
+        new Handler().postDelayed(new Runnable() {
+            /*
+             * Showing splash screen with a timer and displaying website name.
+             */
+            @Override
+            public void run() {
+                // This method will be executed once the timer is over
+                // Start your app next activity
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+                // close this activity
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
     }
     @Override
     protected void onResume() {

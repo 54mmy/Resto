@@ -12,8 +12,6 @@ import android.widget.Toast;
 
 import com.parse.ParseObject;
 
-import acc.resto.fragments.Review;
-
 /**
  * Created by Sagar Gopale on 1/9/2015.
  */

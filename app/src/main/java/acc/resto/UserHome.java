@@ -115,7 +115,7 @@ public class UserHome extends FragmentActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-//                    return UserVisits.newInstance(0,TAB_VISITS_TITLE);
+                    return UserVisits.newInstance(0,TAB_VISITS_TITLE);
                 case 1:
                     return acc.resto.fragments.Menu.newInstance(1, TAB_MENU_TITLE);
                 case 2:
