@@ -4,7 +4,6 @@ package acc.resto;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,7 +23,6 @@ import acc.resto.Adapter.CustomAdapter;
  * Created by Sagar Gopale on 1/9/2015.
  */
 public class ListReviews extends Activity {
-    public static final String NO_RESULT = "No Reviews Yet";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

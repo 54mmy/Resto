@@ -19,9 +19,22 @@ public class UserVisits extends Fragment {
     private Button one, two, three, four, five, six, seven, eight, nine, ten;
     private SharedPreferences preferences;
     private Context mContext;
+    private int pageNumber;
+    private String title;
+
 
     private static final String VISIT_COUNT = "visit_count";
 
+    public static UserVisits newInstance(int pageNumber, String title)
+    {
+        UserVisits userVisits = new UserVisits();
+        Bundle b =new Bundle();
+        b.putInt("offersPageNumber",pageNumber);
+        b.putString("offersTitle",title);
+        userVisits.setArguments(b);
+        return userVisits;
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_user_visits, container , false);
@@ -40,7 +53,15 @@ public class UserVisits extends Fragment {
         return view;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
 
+        pageNumber = getArguments().getInt("offersPageNumber");
+        title = getArguments().getString("offersTitle");
+
+    }
     @Override
     public void onResume() {
         super.onResume();

@@ -23,4 +23,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/Parse-1.8.0.jar')
     compile project(':facebook')
+ //   compile 'cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2'
 }

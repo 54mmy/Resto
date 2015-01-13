@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -17,8 +18,10 @@ import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
+import java.util.Vector;
 
 import acc.resto.Adapter.ScreenSlidePagerAdapter;
 
@@ -29,6 +32,19 @@ public class LoginActivity extends FragmentActivity {
     private static  final int PAGES  = 3;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    int position = 0;
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
+        public void run() {
+            if( position >= 4){
+                position = 0;
+            }else{
+                position = position+1;
+            }
+            mPager.setCurrentItem(position, true);
+            handler.postDelayed(runnable, 10000);
+        }
+    };
 
 
     @Override
@@ -37,8 +53,8 @@ public class LoginActivity extends FragmentActivity {
 
         setContentView(R.layout.login);
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
+//        Parse.enableLocalDatastore(this);
+ //       Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
 
        // editText = (EditText) findViewById(R.id.editText);
 
@@ -50,7 +66,6 @@ public class LoginActivity extends FragmentActivity {
         mPager =  (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-
     }
 
     @Override
@@ -75,40 +90,55 @@ public class LoginActivity extends FragmentActivity {
     {
 
         progressDialog = ProgressDialog.show(LoginActivity.this, "", "Logging IN..", true);
-        List<String> permissions = Arrays.asList("public_profile","user_about_me","user_relationships","user_location","email");
+        List<String> permissions = new ArrayList<String>();
+        permissions.add("public_profile");
+        permissions.add("user_about_me");
+        permissions.add("user_location");
+        permissions.add("email");
+        permissions.add("user_photos");
 
         ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
             @Override
             public void done(ParseUser parseUser, ParseException e) {
                 progressDialog.dismiss();
-                if(parseUser == null)
-                {
+                if(parseUser == null) {
                     Toast.makeText(getApplicationContext(), "User Login Unsuccessful", Toast.LENGTH_LONG).show();
-                }
-                else if (parseUser.isNew())
-                {
+                } else if (parseUser.isNew()) {
                     Toast.makeText(getApplicationContext(), "Logged IN", Toast.LENGTH_LONG).show();
                     getData();
-                }
-                else
-                {
+                } else {
                     Toast.makeText(getApplicationContext(), "Logged IN", Toast.LENGTH_LONG).show();
                     showAct();
                 }
             }
         });
-
     }
 
     public void getData()
     {
         Intent intent = new Intent(this,Record.class);
         startActivity(intent);
+        finish();
     }
     public void showAct()
     {
-        Intent intent = new Intent(this,UserVisits.class);
+        Intent intent = new Intent(this,UserHome.class);
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handler.postDelayed(runnable, 10000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (handler!= null) {
+            handler.removeCallbacks(runnable);
+        }
     }
 }
 
