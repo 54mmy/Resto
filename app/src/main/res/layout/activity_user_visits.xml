@@ -17,8 +17,7 @@
         android:textSize="40dp"
         android:textColor="#FFFFFF"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:color="#FF7F00"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/two"

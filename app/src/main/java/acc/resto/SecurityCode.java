@@ -3,9 +3,9 @@ package acc.resto;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -66,21 +66,19 @@ public class SecurityCode extends ActionBarActivity {
 
                             if (sCode.equalsIgnoreCase(code1)) {
                                 editor.putInt(VISIT_COUNT, buttonNumber);
-                                editor.apply();
-
-                                if(buttonNumber == 11){
-                                    Toast.makeText(getApplicationContext(), "You have completed your offers",Toast.LENGTH_LONG).show();
-                                }
+                                editor.commit();
 
                                 Intent intent = new Intent(SecurityCode.this, PrizeWin.class);
                                 startActivity(intent);
                                 finish();
 
                             } else {
-                                Toast.makeText(getBaseContext(), "Wrong Code !!", Toast.LENGTH_LONG).show();
+                                //RestoUI.showError();
+                                Toast.makeText(getBaseContext(), "Wrong code !", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            Toast.makeText(getBaseContext(), "Something went wrong !!", Toast.LENGTH_LONG).show();
+                            //RestoUI.connectionError();
+                            Toast.makeText(getBaseContext(), "Check your internet connection", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

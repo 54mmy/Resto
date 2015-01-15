@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 
 public class UserVisits extends Fragment {
@@ -71,65 +70,67 @@ public class UserVisits extends Fragment {
         int count = preferences.getInt(VISIT_COUNT, 0);
 
         switch (count) {
+
             case 1:
                 one.setEnabled(true);
                 break;
+
             case 2:
                 one.setEnabled(false);
-                one.setBackgroundColor(Color.WHITE);
+                one.setBackgroundColor(Color.GRAY);
                 two.setEnabled(true);
                 break;
 
             case 3:
                 two.setEnabled(false);
-                two.setBackgroundColor(Color.WHITE);
+                two.setBackgroundColor(Color.GRAY);
                 three.setEnabled(true);
                 break;
 
             case 4:
                 three.setEnabled(false);
-                three.setBackgroundColor(Color.WHITE);
+                three.setBackgroundColor(Color.GRAY);
                 four.setEnabled(true);
                 break;
 
             case 5:
                 four.setEnabled(false);
-                four.setBackgroundColor(Color.WHITE);
+                four.setBackgroundColor(Color.GRAY);
                 five.setEnabled(true);
                 break;
 
             case 6:
                 five.setEnabled(false);
-                five.setBackgroundColor(Color.WHITE);
+                five.setBackgroundColor(Color.GRAY);
                 six.setEnabled(true);
                 break;
 
             case 7:
                 six.setEnabled(false);
-                six.setBackgroundColor(Color.WHITE);
+                six.setBackgroundColor(Color.GRAY);
                 seven.setEnabled(true);
                 break;
 
             case 8:
                 seven.setEnabled(false);
-                seven.setBackgroundColor(Color.WHITE);
+                seven.setBackgroundColor(Color.GRAY);
                 eight.setEnabled(true);
                 break;
 
             case 9:
                 eight.setEnabled(false);
-                eight.setBackgroundColor(Color.WHITE);
+                eight.setBackgroundColor(Color.GRAY);
                 nine.setEnabled(true);
                 break;
 
             case 10:
+                nine.setBackgroundColor(Color.GRAY);
                 nine.setEnabled(false);
                 ten.setEnabled(true);
                 break;
 
             default:
-                ten.setEnabled(false);
-                Toast.makeText(getActivity().getApplicationContext(), "You have completed your offers",Toast.LENGTH_LONG).show();
+
         }
 
 
