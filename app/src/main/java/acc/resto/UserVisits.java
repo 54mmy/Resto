@@ -61,6 +61,8 @@ public class UserVisits extends Fragment {
         title = getArguments().getString("offersTitle");
 
     }
+
+
     @Override
     public void onResume() {
         super.onResume();

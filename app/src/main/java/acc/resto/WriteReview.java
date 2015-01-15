@@ -24,10 +24,10 @@ public class WriteReview extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.addreview);
         ParseObject.registerSubclass(Reviews.class);
 
-        String dishes[] =getResources().getStringArray(R.array.dishName);
+        String dishes[] = getResources().getStringArray(R.array.dishName);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishes);
         a1 = (AutoCompleteTextView) findViewById(R.id.dish);
         a1.setAdapter(adapter);
