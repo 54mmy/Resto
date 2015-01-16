@@ -1,5 +1,7 @@
 package acc.resto;
 
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +20,7 @@ import acc.resto.fragments.Offers;
 /**
  * Created by Sagar Gopale on 1/13/2015.
  */
-public class UserHome extends FragmentActivity {
+public class UserHome extends FragmentActivity implements ActionBar.TabListener{
 
     private Context mContext;
     private ViewPager mViewPager;
@@ -102,6 +104,21 @@ public class UserHome extends FragmentActivity {
     private void goList() {
         Intent intent = new Intent(this , ListReviews.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+        mViewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
     }
 
     public static class UserPagerAdapter extends FragmentPagerAdapter {

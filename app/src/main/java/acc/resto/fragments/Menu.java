@@ -3,11 +3,12 @@ package acc.resto.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 
 /**
  * Created by Sagar Gopale on 1/13/2015.
  */
-public class Menu extends Fragment {
+public class Menu extends ListFragment {
 
     private int pageNumber;
     private String title;
