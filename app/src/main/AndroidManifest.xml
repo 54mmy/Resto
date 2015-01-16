@@ -23,46 +23,41 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
         android:name=".RestoApplication">
 
         <!-- User visits activity -->
         <activity android:name=".UserHome"
-            android:label="Resto"
-            android:theme="@style/AppTheme">
+            android:theme="@style/ActionTheme">
             </activity>
 
         <!-- SecurityCode activity -->
         <activity
             android:name=".SecurityCode"
-            android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/ActionTheme"
+            >
         </activity>
 
         <!-- Prize won activity -->
         <activity
             android:name=".PrizeWin"
-            android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/ActionTheme">
         </activity>
         <activity android:name=".ListReviews"
-            android:label="Resto"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".UserHome">
+            android:parentActivityName=".UserHome"
+            android:theme="@style/ActionTheme">
             </activity>
 
         <activity android:name=".WriteReview"
-            android:label="Resto"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".ListReviews">
+            android:parentActivityName=".ListReviews"
+            android:theme="@style/ActionTheme">
             </activity>
 
         <!-- Main activity -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

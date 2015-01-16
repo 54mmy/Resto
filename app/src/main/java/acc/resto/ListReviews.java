@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import acc.resto.Adapter.CustomAdapter;
+import acc.resto.Model.Reviews;
 
 /**
  * Created by Sagar Gopale on 1/9/2015.
