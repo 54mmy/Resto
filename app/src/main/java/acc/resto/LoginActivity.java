@@ -13,15 +13,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
-import java.util.Vector;
 
 import acc.resto.Adapter.ScreenSlidePagerAdapter;
 
@@ -140,4 +137,3 @@ public class LoginActivity extends FragmentActivity {
         }
     }
 }
-

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 
 public class UserVisits extends Fragment {
@@ -52,25 +51,6 @@ public class UserVisits extends Fragment {
 
         return view;
     }
-/*
-    @Override
-    private void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_visits);
-
-        one = (Button) findViewById(R.id.one);
-        two = (Button) findViewById(R.id.two);
-        three = (Button) findViewById(R.id.three);
-        four = (Button) findViewById(R.id.four);
-        five = (Button) findViewById(R.id.five);
-        six = (Button) findViewById(R.id.six);
-        seven = (Button) findViewById(R.id.seven);
-        eight = (Button) findViewById(R.id.eight);
-        nine = (Button) findViewById(R.id.nine);
-        ten = (Button) findViewById(R.id.ten);
-
-    }
-*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,10 +72,11 @@ public class UserVisits extends Fragment {
         int count = preferences.getInt(VISIT_COUNT, 0);
 
         switch (count) {
+
             case 1:
                 one.setEnabled(true);
-                //one.setBackgroundColor(Color.WHITE);
                 break;
+
             case 2:
                 one.setEnabled(false);
                 one.setBackgroundColor(Color.GRAY);
@@ -145,13 +126,13 @@ public class UserVisits extends Fragment {
                 break;
 
             case 10:
+                nine.setBackgroundColor(Color.GRAY);
                 nine.setEnabled(false);
                 ten.setEnabled(true);
                 break;
 
             default:
-                ten.setEnabled(false);
-                Toast.makeText(getActivity().getApplicationContext(), "You have completed your offers",Toast.LENGTH_LONG).show();
+
         }
 
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 public class PrizeWin extends ActionBarActivity {
@@ -61,6 +62,11 @@ public class PrizeWin extends ActionBarActivity {
 
             case 10:
                 imageView.setImageResource(R.drawable.mexican_food);
+                break;
+
+            case 11:
+                imageView.setImageResource(R.drawable.pancake);
+                Toast.makeText(getApplicationContext(), "You have completed your offers", Toast.LENGTH_LONG).show();
                 break;
 
             default:
