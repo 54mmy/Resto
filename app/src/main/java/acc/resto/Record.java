@@ -11,12 +11,10 @@ import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.model.GraphUser;
+import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
-import com.parse.ParseException;
 import com.parse.SignUpCallback;
-
-import org.json.JSONObject;
 
 public class Record extends Activity{
     @Override

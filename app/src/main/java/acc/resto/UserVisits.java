@@ -20,8 +20,6 @@ public class UserVisits extends Fragment {
     private Context mContext;
     private int pageNumber;
     private String title;
-
-
     private static final String VISIT_COUNT = "visit_count";
 
     public static UserVisits newInstance(int pageNumber, String title)
@@ -32,8 +30,8 @@ public class UserVisits extends Fragment {
         b.putString("offersTitle",title);
         userVisits.setArguments(b);
         return userVisits;
-
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_user_visits, container , false);
@@ -48,93 +46,6 @@ public class UserVisits extends Fragment {
         eight = (Button) view.findViewById(R.id.eight);
         nine = (Button) view.findViewById(R.id.nine);
         ten = (Button) view.findViewById(R.id.ten);
-
-        return view;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mContext = getActivity();
-
-        pageNumber = getArguments().getInt("offersPageNumber");
-        title = getArguments().getString("offersTitle");
-
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        mContext = getActivity().getApplicationContext();
-        preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        int count = preferences.getInt(VISIT_COUNT, 0);
-
-        switch (count) {
-
-            case 1:
-                one.setEnabled(true);
-                break;
-
-            case 2:
-                one.setEnabled(false);
-                one.setBackgroundColor(Color.GRAY);
-                two.setEnabled(true);
-                break;
-
-            case 3:
-                two.setEnabled(false);
-                two.setBackgroundColor(Color.GRAY);
-                three.setEnabled(true);
-                break;
-
-            case 4:
-                three.setEnabled(false);
-                three.setBackgroundColor(Color.GRAY);
-                four.setEnabled(true);
-                break;
-
-            case 5:
-                four.setEnabled(false);
-                four.setBackgroundColor(Color.GRAY);
-                five.setEnabled(true);
-                break;
-
-            case 6:
-                five.setEnabled(false);
-                five.setBackgroundColor(Color.GRAY);
-                six.setEnabled(true);
-                break;
-
-            case 7:
-                six.setEnabled(false);
-                six.setBackgroundColor(Color.GRAY);
-                seven.setEnabled(true);
-                break;
-
-            case 8:
-                seven.setEnabled(false);
-                seven.setBackgroundColor(Color.GRAY);
-                eight.setEnabled(true);
-                break;
-
-            case 9:
-                eight.setEnabled(false);
-                eight.setBackgroundColor(Color.GRAY);
-                nine.setEnabled(true);
-                break;
-
-            case 10:
-                nine.setBackgroundColor(Color.GRAY);
-                nine.setEnabled(false);
-                ten.setEnabled(true);
-                break;
-
-            default:
-
-        }
-
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,5 +136,92 @@ public class UserVisits extends Fragment {
                 startActivity(intent);
             }
         });
+
+        return view;
+
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+
+        pageNumber = getArguments().getInt("offersPageNumber");
+        title = getArguments().getString("offersTitle");
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        int count = preferences.getInt(VISIT_COUNT, 0);
+
+
+        switch (count) {
+
+            case 1:
+                one.setEnabled(true);
+                break;
+
+            case 2:
+                one.setEnabled(false);
+                one.setBackgroundColor(Color.GRAY);
+                two.setEnabled(true);
+                break;
+
+            case 3:
+                two.setEnabled(false);
+                two.setBackgroundColor(Color.GRAY);
+                three.setEnabled(true);
+                break;
+
+            case 4:
+                three.setEnabled(false);
+                three.setBackgroundColor(Color.GRAY);
+                four.setEnabled(true);
+                break;
+
+            case 5:
+                four.setEnabled(false);
+                four.setBackgroundColor(Color.GRAY);
+                five.setEnabled(true);
+                break;
+
+            case 6:
+                five.setEnabled(false);
+                five.setBackgroundColor(Color.GRAY);
+                six.setEnabled(true);
+                break;
+
+            case 7:
+                six.setEnabled(false);
+                six.setBackgroundColor(Color.GRAY);
+                seven.setEnabled(true);
+                break;
+
+            case 8:
+                seven.setEnabled(false);
+                seven.setBackgroundColor(Color.GRAY);
+                eight.setEnabled(true);
+                break;
+
+            case 9:
+                eight.setEnabled(false);
+                eight.setBackgroundColor(Color.GRAY);
+                nine.setEnabled(true);
+                break;
+
+            case 10:
+                nine.setBackgroundColor(Color.GRAY);
+                nine.setEnabled(false);
+                ten.setEnabled(true);
+                break;
+
+            default:
+
+        }
     }
 }

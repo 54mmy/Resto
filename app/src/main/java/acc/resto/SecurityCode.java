@@ -28,12 +28,12 @@ public class SecurityCode extends ActionBarActivity {
     TextView msg;
     public static final String TABLE_NAME = "SecurityCode";
     public static final String COLUMN_NAME = "code";
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
-    private static final String VISIT_COUNT = "visit_count";
+    protected SharedPreferences preferences;
+    protected SharedPreferences.Editor editor;
+    protected static final String VISIT_COUNT = "visit_count";
     private int buttonNumber;
 
-    private Context mContext;
+    protected Context mContext;
 
     private Bundle b;
 
@@ -85,7 +85,6 @@ public class SecurityCode extends ActionBarActivity {
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
