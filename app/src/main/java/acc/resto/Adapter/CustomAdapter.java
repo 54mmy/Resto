@@ -3,23 +3,17 @@ package acc.resto.Adapter;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.facebook.RequestAsyncTask;
-import com.facebook.android.AsyncFacebookRunner;
 
 import java.util.List;
 
 import acc.resto.R;
-import acc.resto.Reviews;
+import acc.resto.Model.Reviews;
 
 /**
  * Created by Sagar Gopale on 1/9/2015.

@@ -1,4 +1,4 @@
-package acc.resto;
+package acc.resto.Model;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;

@@ -1,5 +1,6 @@
 package acc.resto;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +22,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 
-public class SecurityCode extends ActionBarActivity {
+public class SecurityCode extends Activity {
 
     EditText code;
     Button submit;

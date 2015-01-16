@@ -1,5 +1,6 @@
 package acc.resto;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -11,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-public class PrizeWin extends ActionBarActivity {
+public class PrizeWin extends Activity {
 
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
