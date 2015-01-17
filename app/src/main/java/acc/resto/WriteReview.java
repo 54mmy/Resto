@@ -20,7 +20,7 @@ import acc.resto.model.Reviews;
 public class WriteReview extends Activity {
     EditText review;
     ImageButton imageButton;
-    AutoCompleteTextView a1;
+    AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapter;
 
     @Override
@@ -31,9 +31,9 @@ public class WriteReview extends Activity {
 
         String dishes[] = getResources().getStringArray(R.array.dishName);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishes);
-        a1 = (AutoCompleteTextView) findViewById(R.id.dish);
-        a1.setAdapter(adapter);
-        a1.setThreshold(1);
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.dish);
+        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setThreshold(1);
 
         review = (EditText) findViewById(R.id.review);
         imageButton = (ImageButton) findViewById(R.id.imageButton2);
@@ -42,31 +42,28 @@ public class WriteReview extends Activity {
             @Override
             public void onClick(View v) {
 
-                String name = a1.getText().toString();
+                String name = autoCompleteTextView.getText().toString();
                 String rev = review.getText().toString();
 
-                if(name.length()>0 && rev.length()>0)
-                {
+                if(name.length()>0 && rev.length()>0) {
                     Reviews r = new Reviews();
                     r.setDish(name);
                     r.setReview(rev);
                     r.saveInBackground();
                     Toast.makeText(getApplicationContext(), "Thank you for Submitting your review...!", Toast.LENGTH_LONG).show();
-                    fireBack();
-                }
-                else {
+                    backToReviewList();
+                } else {
                     Toast.makeText(getApplicationContext(), "Fields cannot be left blank", Toast.LENGTH_LONG).show();
                 }
-                a1.getText().clear();
+                autoCompleteTextView.getText().clear();
                 review.getText().clear();
 
             }
         });
     }
-    public void fireBack()
-    {
+
+    public void backToReviewList() {
         Intent i = new Intent(this, ListReviews.class);
         startActivity(i);
-
     }
 }
