@@ -1,20 +1,20 @@
 package acc.resto;
 
-/**
- * Created by MITHUN on 1/16/2015.
- */
+import android.graphics.drawable.Drawable;
+
 public class OffersData {
+
+    public Drawable icon;
     public String title;
-    public String desc;
-    public int image;
+    public String description;
     public OffersData(){
         super();
     }
 
-    public OffersData(String title, String desc, int image) {
+    public OffersData(Drawable icon, String title, String description ) {
         super();
+        this.icon = icon;
         this.title = title;
-        this.desc = desc;
-        this.image = image;
+        this.description = description;
     }
 }

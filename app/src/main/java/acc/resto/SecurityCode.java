@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -69,7 +68,7 @@ public class SecurityCode extends Activity {
                                 editor.putInt(VISIT_COUNT, buttonNumber);
                                 editor.commit();
 
-                                Intent intent = new Intent(SecurityCode.this, PrizeWin.class);
+                                Intent intent = new Intent(SecurityCode.this, PrizeActivity.class);
                                 startActivity(intent);
                                 finish();
 

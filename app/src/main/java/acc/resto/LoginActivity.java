@@ -20,7 +20,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-import acc.resto.Adapter.ScreenSlidePagerAdapter;
+import acc.resto.adapter.ScreenSlidePagerAdapter;
 
 public class LoginActivity extends FragmentActivity {
 

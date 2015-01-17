@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.parse.ParseObject;
 
-import acc.resto.Model.Reviews;
+import acc.resto.model.Reviews;
 
 /**
  * Created by Sagar Gopale on 1/9/2015.

@@ -17,8 +17,8 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-import acc.resto.Adapter.CustomAdapter;
-import acc.resto.Model.Reviews;
+import acc.resto.adapter.CustomAdapter;
+import acc.resto.model.Reviews;
 
 /**
  * Created by Sagar Gopale on 1/9/2015.
