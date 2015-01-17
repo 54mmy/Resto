@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-public class PrizeWin extends Activity {
+public class PrizeActivity extends Activity {
 
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;

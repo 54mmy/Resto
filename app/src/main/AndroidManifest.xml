@@ -40,7 +40,7 @@
 
         <!-- Prize won activity -->
         <activity
-            android:name=".PrizeWin"
+            android:name=".PrizeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ActionTheme">
         </activity>

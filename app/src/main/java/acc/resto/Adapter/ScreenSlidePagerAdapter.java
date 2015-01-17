@@ -1,10 +1,8 @@
-package acc.resto.Adapter;
+package acc.resto.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
-import java.util.logging.Handler;
 
 import acc.resto.fragments.FragmentOne;
 import acc.resto.fragments.FragmentThree;

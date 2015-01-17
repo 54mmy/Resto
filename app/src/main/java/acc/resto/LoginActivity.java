@@ -20,7 +20,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-import acc.resto.Adapter.ScreenSlidePagerAdapter;
+import acc.resto.adapter.ScreenSlidePagerAdapter;
 
 public class LoginActivity extends FragmentActivity {
 
@@ -35,7 +35,7 @@ public class LoginActivity extends FragmentActivity {
         public void run() {
             if( position >= 4){
                 position = 0;
-            }else{
+            } else {
                 position = position+1;
             }
             mPager.setCurrentItem(position, true);
@@ -83,9 +83,7 @@ public class LoginActivity extends FragmentActivity {
         ParseFacebookUtils.finishAuthentication(requestCode, resultCode , data);
     }
 
-    public void OnClick(View v)
-    {
-
+    public void OnClick(View v) {
         progressDialog = ProgressDialog.show(LoginActivity.this, "", "Logging IN..", true);
         List<String> permissions = new ArrayList<String>();
         permissions.add("public_profile");
@@ -111,13 +109,12 @@ public class LoginActivity extends FragmentActivity {
         });
     }
 
-    public void getData()
-    {
-        Intent intent = new Intent(this,Record.class);
+    public void getData() {
+        Intent intent = new Intent(this, Record.class);
         startActivity(intent);
     }
-    public void showAct()
-    {
+
+    public void showAct() {
         Intent intent = new Intent(this,UserHome.class);
         startActivity(intent);
         finish();

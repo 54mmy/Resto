@@ -1,4 +1,4 @@
-package acc.resto.Adapter;
+package acc.resto.adapter;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import acc.resto.R;
-import acc.resto.Model.Reviews;
+import acc.resto.model.Reviews;
 
 /**
  * Created by Sagar Gopale on 1/9/2015.

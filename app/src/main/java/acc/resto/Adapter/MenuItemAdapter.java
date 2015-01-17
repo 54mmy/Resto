@@ -1,4 +1,4 @@
-package acc.resto.Adapter;
+package acc.resto.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import acc.resto.Model.Menu;
+import acc.resto.model.Menu;
 import acc.resto.R;
 
 
