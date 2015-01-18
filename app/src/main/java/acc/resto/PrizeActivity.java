@@ -44,17 +44,17 @@ public class PrizeActivity extends Activity {
                 break;
 
             case 4:
-                UserVisits.btn.setText("4");
+                UserVisits.btn.setText("5");
                 imageView.setImageResource(R.drawable.sandwitch);
                 break;
 
             case 5:
-                UserVisits.btn.setText("5");
+                UserVisits.btn.setText("6");
                 imageView.setImageResource(R.drawable.manchurien);
                 break;
 
             case 6:
-                UserVisits.btn.setText("6");
+                UserVisits.btn.setText("7");
                 imageView.setImageResource(R.drawable.sandwitch);
                 break;
 
