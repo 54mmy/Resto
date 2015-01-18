@@ -41,7 +41,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:gravity="center_vertical|center_horizontal"
-        android:background="@drawable/round_button"
+        android:background="@drawable/rectangle_button"
         android:text="submit"
         android:textColor="#FFFFFF"
         android:textStyle="italic"
