@@ -7,34 +7,39 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.List;
 
-import java.util.ArrayList;
-
-/**
- * Created by MITHUN on 1/16/2015.
- */
 public class OffersAdapter extends ArrayAdapter<OffersData> {
-    private final Context context;
-    ArrayList<OffersData> offersArrayList;
-    public OffersAdapter(Context context, ArrayList<OffersData> offersArrayList) {
-        super(context, R.layout.list_item, offersArrayList);
-        this.context = context;
-        this.offersArrayList = offersArrayList;
+    public OffersAdapter(Context context, List<OffersData> item) {
+        super(context, R.layout.list_item, item);
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = layoutInflater.inflate(R.layout.list_item, parent, false);
-        TextView titleView = (TextView) rowView.findViewById(R.id.title);
-        TextView descView = (TextView) rowView.findViewById(R.id.desc);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.image);
 
-        titleView.setText(offersArrayList.get(position).title);
-        descView.setText(offersArrayList.get(position).desc);
-        imageView.setImageResource(offersArrayList.get(position).image);
+        ViewHolder viewHolder;
+        if(convertView == null) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.list_item, parent, false);
+            viewHolder = new ViewHolder();
+            viewHolder.list_icon = (ImageView) convertView.findViewById(R.id.l_icon);
+            viewHolder.list_title = (TextView) convertView.findViewById(R.id.l_title);
+            viewHolder.list_Description = (TextView) convertView.findViewById(R.id.l_description);
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
 
-        return rowView;
+        OffersData item = getItem(position);
+        viewHolder.list_icon.setImageDrawable(item.icon);
+        viewHolder.list_title.setText(item.title);
+        viewHolder.list_Description.setText(item.description);
+
+        return convertView;
     }
 
+    private static class ViewHolder {
+        ImageView list_icon;
+        TextView list_title;
+        TextView list_Description;
+    }
 }

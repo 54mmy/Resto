@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 import com.facebook.AppEventsLogger;
 
+import net.hockeyapp.android.FeedbackManager;
+import net.hockeyapp.android.Tracking;
 
 public class MainActivity extends Activity {
 
@@ -35,12 +37,13 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        Tracking.startUsage(this);
         // Logs 'install' and 'app activate' App Events.
         AppEventsLogger.activateApp(this);
     }
     @Override
     protected void onPause() {
+        Tracking.stopUsage(this);
         super.onPause();
 
         // Logs 'app deactivate' App Event.
@@ -68,4 +71,19 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void checkForCrashes() {
+       // CrashManager.register(this, APP_ID);
+    }
+
+    private void checkForUpdates() {
+        // Remove this for store / production builds!
+       // UpdateManager.register(this, APP_ID);
+    }
+
+    public void showFeedbackActivity() {
+       // FeedbackManager.register(this, HOCKEYAPP_ID, null);
+        FeedbackManager.showFeedbackActivity(this);
+    }
+
 }

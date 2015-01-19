@@ -3,7 +3,6 @@ package acc.resto;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -15,7 +14,8 @@ import android.widget.Button;
 
 public class UserVisits extends Fragment {
 
-    private Button one, two, three, four, five, six, seven, eight, nine, ten;
+    //private Button one, two, three, four, five, six, seven, eight, nine, ten;
+    protected static Button btn;
     private SharedPreferences preferences;
     private Context mContext;
     private int pageNumber;
@@ -36,20 +36,14 @@ public class UserVisits extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_user_visits, container , false);
 
-        one = (Button) view.findViewById(R.id.one);
-        two = (Button) view.findViewById(R.id.two);
-        three = (Button) view.findViewById(R.id.three);
-        four = (Button) view.findViewById(R.id.four);
-        five = (Button) view.findViewById(R.id.five);
-        six = (Button) view.findViewById(R.id.six);
-        seven = (Button) view.findViewById(R.id.seven);
-        eight = (Button) view.findViewById(R.id.eight);
-        nine = (Button) view.findViewById(R.id.nine);
-        ten = (Button) view.findViewById(R.id.ten);
+        btn = (Button) view.findViewById(R.id.btn);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        int count = preferences.getInt(VISIT_COUNT, 1);
+        String cnt = String.valueOf(count);
+        btn.setText(cnt);
 
         return view;
-
-
     }
 
     @Override
@@ -61,166 +55,81 @@ public class UserVisits extends Fragment {
         title = getArguments().getString("offersTitle");
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        int count = preferences.getInt(VISIT_COUNT, 1);
-
-
-        switch (count) {
-
-            case 1:
-                one.setEnabled(true);
-                break;
-
-            case 2:
-                one.setEnabled(false);
-                one.setBackgroundColor(Color.GRAY);
-                two.setEnabled(true);
-                break;
-
-            case 3:
-                two.setEnabled(false);
-                two.setBackgroundColor(Color.GRAY);
-                three.setEnabled(true);
-                break;
-
-            case 4:
-                three.setEnabled(false);
-                three.setBackgroundColor(Color.GRAY);
-                four.setEnabled(true);
-                break;
-
-            case 5:
-                four.setEnabled(false);
-                four.setBackgroundColor(Color.GRAY);
-                five.setEnabled(true);
-                break;
-
-            case 6:
-                five.setEnabled(false);
-                five.setBackgroundColor(Color.GRAY);
-                six.setEnabled(true);
-                break;
-
-            case 7:
-                six.setEnabled(false);
-                six.setBackgroundColor(Color.GRAY);
-                seven.setEnabled(true);
-                break;
-
-            case 8:
-                seven.setEnabled(false);
-                seven.setBackgroundColor(Color.GRAY);
-                eight.setEnabled(true);
-                break;
-
-            case 9:
-                eight.setEnabled(false);
-                eight.setBackgroundColor(Color.GRAY);
-                nine.setEnabled(true);
-                break;
-
-            case 10:
-                nine.setBackgroundColor(Color.GRAY);
-                nine.setEnabled(false);
-                ten.setEnabled(true);
-                break;
-
-            default:
-
-        }
-
-        one.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, SecurityCode.class);
-                intent.putExtra("button_number", 2);
-                startActivity(intent);
-            }
-        });
+                preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+                int count = preferences.getInt(VISIT_COUNT, 1);
 
-        two.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, SecurityCode.class);
-                intent.putExtra("button_number", 3);
-                startActivity(intent);
-            }
-        });
+                switch (count) {
 
-        three.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 4);
-                startActivity(intent);
-            }
-        });
+                    case 1:
+                        Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent.putExtra("button_number", 2);
+                        startActivity(intent);
+                        break;
 
-        four.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 5);
-                startActivity(intent);
-            }
-        });
+                    case 2:
+                        Intent intent2 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent2.putExtra("button_number", 3);
+                        startActivity(intent2);
+                        break;
 
-        five.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 6);
-                startActivity(intent);
-            }
-        });
+                    case 3:
+                        Intent intent3 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent3.putExtra("button_number", 4);
+                        startActivity(intent3);
+                        break;
 
-        six.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 7);
-                startActivity(intent);
-            }
-        });
+                    case 4:
+                        Intent intent4 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent4.putExtra("button_number", 5);
+                        startActivity(intent4);
+                        break;
 
-        seven.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 8);
-                startActivity(intent);
-            }
-        });
+                    case 5:
+                        Intent intent5 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent5.putExtra("button_number", 6);
+                        startActivity(intent5);
+                        break;
 
-        eight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 9);
-                startActivity(intent);
-            }
-        });
+                    case 6:
+                        Intent intent6 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent6.putExtra("button_number", 7);
+                        startActivity(intent6);
+                        break;
 
-        nine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 10);
-                startActivity(intent);
-            }
-        });
+                    case 7:
+                        Intent intent7 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent7.putExtra("button_number", 8);
+                        startActivity(intent7);
 
-        ten.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                intent.putExtra("button_number", 11);
-                startActivity(intent);
+                        break;
+
+                    case 8:
+                        Intent intent8 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent8.putExtra("button_number", 9);
+                        startActivity(intent8);
+                        break;
+
+                    case 9:
+                        Intent intent9 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent9.putExtra("button_number", 10);
+                        startActivity(intent9);
+                        break;
+
+                    case 10:
+                        Intent intent10 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
+                        intent10.putExtra("button_number", 10);
+                        startActivity(intent10);
+                        break;
+
+                    default:
+                }
             }
         });
     }
