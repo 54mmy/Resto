@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#FFA633"
+    android:background="#4366A3"
     android:orientation="vertical">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/img3"
-        android:src="@drawable/vector_tea_cups_food_logo"/>
+        android:src="@drawable/fbscreen"/>
+
+    <ImageButton
+        android:background="#4c66A3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/login"
+        android:onClick="OnClick"
+        android:layout_margin="10dp"/>
 </LinearLayout>

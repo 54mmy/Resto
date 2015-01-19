@@ -2,12 +2,15 @@ package acc.resto;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Rating;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseObject;
@@ -37,7 +40,7 @@ public class WriteReview extends Activity {
 
         review = (EditText) findViewById(R.id.review);
         imageButton = (ImageButton) findViewById(R.id.imageButton2);
-
+        addListenerOnRatingBar();
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +60,19 @@ public class WriteReview extends Activity {
                 }
                 autoCompleteTextView.getText().clear();
                 review.getText().clear();
+
+            }
+        });
+    }
+    public void addListenerOnRatingBar() {
+
+       RatingBar ratingBar = (RatingBar) findViewById(R.id.rating);        //if rating value is changed,
+        //display the current rating value in the result (textview) automatically
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating,
+                                        boolean fromUser) {
+
+                Toast.makeText(getApplicationContext(), String.valueOf(rating), Toast.LENGTH_LONG).show();
 
             }
         });

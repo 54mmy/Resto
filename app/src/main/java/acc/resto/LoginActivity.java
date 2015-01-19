@@ -16,6 +16,9 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
+import com.viewpagerindicator.CirclePageIndicator;
+
+import org.apache.http.client.CircularRedirectException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +65,10 @@ public class LoginActivity extends FragmentActivity {
 
         mPager =  (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        CirclePageIndicator circlePageIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
         mPager.setAdapter(mPagerAdapter);
+        circlePageIndicator.setViewPager(mPager);
+
     }
 
     @Override
