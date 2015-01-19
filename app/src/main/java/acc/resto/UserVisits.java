@@ -123,7 +123,6 @@ public class UserVisits extends Fragment {
                         break;
 
                     case 10:
-                        int num
                         Intent intent10 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
                         intent10.putExtra("button_number", 10);
                         startActivity(intent10);
