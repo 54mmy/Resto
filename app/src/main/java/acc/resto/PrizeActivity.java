@@ -28,59 +28,58 @@ public class PrizeActivity extends Activity {
         int count = preferences.getInt("visit_count", 0);
 
         switch (count) {
-            case 1:
+            case 2:
                 UserVisits.btn.setText("2");
                 imageView.setImageResource(R.drawable.coke);
                 break;
 
-            case 2:
+            case 3:
                 UserVisits.btn.setText("3");
                 imageView.setImageResource(R.drawable.pepsi);
                 break;
 
-            case 3:
+            case 4:
                 UserVisits.btn.setText("4");
                 imageView.setImageResource(R.drawable.icedcoffee);
                 break;
 
-            case 4:
+            case 5:
                 UserVisits.btn.setText("5");
                 imageView.setImageResource(R.drawable.sandwitch);
                 break;
 
-            case 5:
+            case 6:
                 UserVisits.btn.setText("6");
                 imageView.setImageResource(R.drawable.manchurien);
                 break;
 
-            case 6:
+            case 7:
                 UserVisits.btn.setText("7");
                 imageView.setImageResource(R.drawable.sandwitch);
                 break;
 
-            case 7:
+            case 8:
                 UserVisits.btn.setText("8");
                 imageView.setImageResource(R.drawable.meal);
                 break;
 
-            case 8:
+            case 9:
                 UserVisits.btn.setText("9");
                 imageView.setImageResource(R.drawable.pancake);
                 break;
 
-            case 9:
+            case 10:
                 UserVisits.btn.setText("10");
                 imageView.setImageResource(R.drawable.mexican_food);
                 break;
 
-            case 10:
-                imageView.setImageResource(R.drawable.pancake);
+            case 11:
+                imageView.setImageResource(R.drawable.thankyou);
                 Toast.makeText(getApplicationContext(), "You have completed your offers", Toast.LENGTH_LONG).show();
                 break;
 
             default:
-                imageView.setImageResource(R.drawable.thankyou);
-                break;
+
         }
     }
 

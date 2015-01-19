@@ -45,169 +45,188 @@ uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from AndroidManifest.xml:12:5
 	android:name
 		ADDED from AndroidManifest.xml:12:22
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:13:5
+	android:name
+		ADDED from AndroidManifest.xml:13:22
 permission#acc.resto.permission.C2D_MESSAGE
-ADDED from AndroidManifest.xml:18:5
-	android:protectionLevel
-		ADDED from AndroidManifest.xml:18:17
-	android:name
-		ADDED from AndroidManifest.xml:19:9
-uses-permission#acc.resto.permission.C2D_MESSAGE
 ADDED from AndroidManifest.xml:20:5
+	android:protectionLevel
+		ADDED from AndroidManifest.xml:20:17
 	android:name
-		ADDED from AndroidManifest.xml:20:22
-application
+		ADDED from AndroidManifest.xml:21:9
+uses-permission#acc.resto.permission.C2D_MESSAGE
 ADDED from AndroidManifest.xml:22:5
+	android:name
+		ADDED from AndroidManifest.xml:22:22
+application
+ADDED from AndroidManifest.xml:24:5
 MERGED from com.facebook.android:facebook:3.21.1:24:5
 MERGED from com.android.support:appcompat-v7:21.0.3:16:5
 MERGED from com.android.support:support-v4:21.0.3:16:5
+MERGED from com.android.support:support-v4:21.0.3:16:5
 	android:label
-		ADDED from AndroidManifest.xml:25:9
+		ADDED from AndroidManifest.xml:27:9
 	android:allowBackup
-		ADDED from AndroidManifest.xml:23:9
+		ADDED from AndroidManifest.xml:25:9
 	android:icon
-		ADDED from AndroidManifest.xml:24:9
-	android:name
 		ADDED from AndroidManifest.xml:26:9
+	android:name
+		ADDED from AndroidManifest.xml:28:9
 activity#acc.resto.UserHome
-ADDED from AndroidManifest.xml:29:9
+ADDED from AndroidManifest.xml:31:9
 	android:theme
-		ADDED from AndroidManifest.xml:30:13
+		ADDED from AndroidManifest.xml:32:13
 	android:name
-		ADDED from AndroidManifest.xml:29:19
+		ADDED from AndroidManifest.xml:31:19
 activity#acc.resto.SecurityCode
-ADDED from AndroidManifest.xml:34:9
+ADDED from AndroidManifest.xml:36:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:36:13
+		ADDED from AndroidManifest.xml:38:13
 	android:theme
+		ADDED from AndroidManifest.xml:39:13
+	android:name
 		ADDED from AndroidManifest.xml:37:13
-	android:name
-		ADDED from AndroidManifest.xml:35:13
 activity#acc.resto.PrizeActivity
-ADDED from AndroidManifest.xml:42:9
+ADDED from AndroidManifest.xml:44:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:44:13
+		ADDED from AndroidManifest.xml:46:13
 	android:theme
+		ADDED from AndroidManifest.xml:47:13
+	android:name
 		ADDED from AndroidManifest.xml:45:13
-	android:name
-		ADDED from AndroidManifest.xml:43:13
 activity#acc.resto.ListReviews
-ADDED from AndroidManifest.xml:47:9
+ADDED from AndroidManifest.xml:49:9
 	android:theme
-		ADDED from AndroidManifest.xml:49:13
+		ADDED from AndroidManifest.xml:51:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:48:13
+		ADDED from AndroidManifest.xml:50:13
 	android:name
-		ADDED from AndroidManifest.xml:47:19
+		ADDED from AndroidManifest.xml:49:19
 activity#acc.resto.WriteReview
-ADDED from AndroidManifest.xml:52:9
+ADDED from AndroidManifest.xml:54:9
 	android:theme
-		ADDED from AndroidManifest.xml:54:13
+		ADDED from AndroidManifest.xml:56:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:53:13
+		ADDED from AndroidManifest.xml:55:13
 	android:name
-		ADDED from AndroidManifest.xml:52:19
+		ADDED from AndroidManifest.xml:54:19
 activity#acc.resto.MainActivity
-ADDED from AndroidManifest.xml:58:9
+ADDED from AndroidManifest.xml:60:9
 	android:theme
-		ADDED from AndroidManifest.xml:60:13
+		ADDED from AndroidManifest.xml:62:13
 	android:name
-		ADDED from AndroidManifest.xml:59:13
+		ADDED from AndroidManifest.xml:61:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:61:13
+ADDED from AndroidManifest.xml:63:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:62:17
-	android:name
-		ADDED from AndroidManifest.xml:62:25
-category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:64:17
 	android:name
-		ADDED from AndroidManifest.xml:64:27
+		ADDED from AndroidManifest.xml:64:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:66:17
+	android:name
+		ADDED from AndroidManifest.xml:66:27
 activity#acc.resto.LoginActivity
-ADDED from AndroidManifest.xml:68:9
+ADDED from AndroidManifest.xml:70:9
 	android:label
-		ADDED from AndroidManifest.xml:69:13
+		ADDED from AndroidManifest.xml:71:13
 	android:name
-		ADDED from AndroidManifest.xml:68:19
+		ADDED from AndroidManifest.xml:70:19
 activity#com.facebook.LoginActivity
-ADDED from AndroidManifest.xml:73:9
+ADDED from AndroidManifest.xml:75:9
 	android:label
-		ADDED from AndroidManifest.xml:74:13
+		ADDED from AndroidManifest.xml:76:13
 	android:name
-		ADDED from AndroidManifest.xml:73:19
+		ADDED from AndroidManifest.xml:75:19
 activity#acc.resto.Record
-ADDED from AndroidManifest.xml:77:9
+ADDED from AndroidManifest.xml:79:9
 	android:label
-		ADDED from AndroidManifest.xml:78:13
+		ADDED from AndroidManifest.xml:80:13
 	android:name
-		ADDED from AndroidManifest.xml:77:19
+		ADDED from AndroidManifest.xml:79:19
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from AndroidManifest.xml:82:9
+ADDED from AndroidManifest.xml:84:9
 	android:name
-		ADDED from AndroidManifest.xml:82:20
+		ADDED from AndroidManifest.xml:84:20
 	android:value
-		ADDED from AndroidManifest.xml:83:13
+		ADDED from AndroidManifest.xml:85:13
 service#com.parse.PushService
-ADDED from AndroidManifest.xml:85:9
+ADDED from AndroidManifest.xml:87:9
 	android:name
-		ADDED from AndroidManifest.xml:85:18
+		ADDED from AndroidManifest.xml:87:18
 receiver#com.parse.ParseBroadcastReceiver
-ADDED from AndroidManifest.xml:86:9
+ADDED from AndroidManifest.xml:88:9
 	android:name
-		ADDED from AndroidManifest.xml:86:19
+		ADDED from AndroidManifest.xml:88:19
 intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.action.USER_PRESENT
-ADDED from AndroidManifest.xml:87:13
+ADDED from AndroidManifest.xml:89:13
 action#android.intent.action.BOOT_COMPLETED
-ADDED from AndroidManifest.xml:88:17
+ADDED from AndroidManifest.xml:90:17
 	android:name
-		ADDED from AndroidManifest.xml:88:25
+		ADDED from AndroidManifest.xml:90:25
 action#android.intent.action.USER_PRESENT
-ADDED from AndroidManifest.xml:89:17
+ADDED from AndroidManifest.xml:91:17
 	android:name
-		ADDED from AndroidManifest.xml:89:25
+		ADDED from AndroidManifest.xml:91:25
 receiver#com.parse.ParsePushBroadcastReceiver
-ADDED from AndroidManifest.xml:92:9
+ADDED from AndroidManifest.xml:94:9
 	android:exported
-		ADDED from AndroidManifest.xml:93:13
+		ADDED from AndroidManifest.xml:95:13
 	android:name
-		ADDED from AndroidManifest.xml:92:19
+		ADDED from AndroidManifest.xml:94:19
 intent-filter#com.parse.push.intent.DELETE+com.parse.push.intent.OPEN+com.parse.push.intent.RECEIVE
-ADDED from AndroidManifest.xml:94:13
+ADDED from AndroidManifest.xml:96:13
 action#com.parse.push.intent.RECEIVE
-ADDED from AndroidManifest.xml:95:17
-	android:name
-		ADDED from AndroidManifest.xml:95:25
-action#com.parse.push.intent.DELETE
-ADDED from AndroidManifest.xml:96:17
-	android:name
-		ADDED from AndroidManifest.xml:96:25
-action#com.parse.push.intent.OPEN
 ADDED from AndroidManifest.xml:97:17
 	android:name
 		ADDED from AndroidManifest.xml:97:25
+action#com.parse.push.intent.DELETE
+ADDED from AndroidManifest.xml:98:17
+	android:name
+		ADDED from AndroidManifest.xml:98:25
+action#com.parse.push.intent.OPEN
+ADDED from AndroidManifest.xml:99:17
+	android:name
+		ADDED from AndroidManifest.xml:99:25
 receiver#com.parse.GcmBroadcastReceiver
-ADDED from AndroidManifest.xml:100:9
+ADDED from AndroidManifest.xml:102:9
 	android:permission
-		ADDED from AndroidManifest.xml:101:13
+		ADDED from AndroidManifest.xml:103:13
 	android:name
-		ADDED from AndroidManifest.xml:100:19
+		ADDED from AndroidManifest.xml:102:19
 intent-filter#acc.resto+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
-ADDED from AndroidManifest.xml:102:13
+ADDED from AndroidManifest.xml:104:13
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from AndroidManifest.xml:103:17
+ADDED from AndroidManifest.xml:105:17
 	android:name
-		ADDED from AndroidManifest.xml:103:25
+		ADDED from AndroidManifest.xml:105:25
 action#com.google.android.c2dm.intent.REGISTRATION
-ADDED from AndroidManifest.xml:104:17
+ADDED from AndroidManifest.xml:106:17
 	android:name
-		ADDED from AndroidManifest.xml:104:25
+		ADDED from AndroidManifest.xml:106:25
 category#acc.resto
-ADDED from AndroidManifest.xml:109:17
+ADDED from AndroidManifest.xml:111:17
 	android:name
-		ADDED from AndroidManifest.xml:109:27
+		ADDED from AndroidManifest.xml:111:27
+activity#net.hockeyapp.android.UpdateActivity
+ADDED from AndroidManifest.xml:114:10
+	android:name
+		ADDED from AndroidManifest.xml:114:20
+activity#net.hockeyapp.android.FeedbackActivity
+ADDED from AndroidManifest.xml:115:10
+	android:name
+		ADDED from AndroidManifest.xml:115:20
+activity#net.hockeyapp.android.PaintActivity
+ADDED from AndroidManifest.xml:116:10
+	android:name
+		ADDED from AndroidManifest.xml:116:20
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.facebook.android:facebook:3.21.1:20:5
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5
+MERGED from com.android.support:support-v4:21.0.3:15:5
+MERGED from Resto:library:unspecified:7:5
 MERGED from com.android.support:support-v4:21.0.3:15:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0

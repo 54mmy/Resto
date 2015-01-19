@@ -124,7 +124,7 @@ public class UserVisits extends Fragment {
 
                     case 10:
                         Intent intent10 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                        intent10.putExtra("button_number", 10);
+                        intent10.putExtra("button_number", 11);
                         startActivity(intent10);
                         break;
 
