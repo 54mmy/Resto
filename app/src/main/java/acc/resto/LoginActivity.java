@@ -3,11 +3,15 @@ package acc.resto;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,6 +24,8 @@ import com.viewpagerindicator.CirclePageIndicator;
 
 import org.apache.http.client.CircularRedirectException;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +58,7 @@ public class LoginActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.login);
+        getKeyHash();
 
 //        Parse.enableLocalDatastore(this);
  //       Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
@@ -69,6 +76,21 @@ public class LoginActivity extends FragmentActivity {
         mPager.setAdapter(mPagerAdapter);
         circlePageIndicator.setViewPager(mPager);
 
+    }
+
+    private void getKeyHash() {
+        try {
+            PackageInfo info =     getPackageManager().getPackageInfo("acc.resto",     PackageManager.GET_SIGNATURES);
+            for (android.content.pm.Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String sign= Base64.encodeToString(md.digest(), Base64.DEFAULT);
+                Log.e("MY KEY HASH:", sign);
+                //  Toast.makeText(getApplicationContext(),sign,     Toast.LENGTH_LONG).show();
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+        } catch (NoSuchAlgorithmException e) {
+        }
     }
 
     @Override

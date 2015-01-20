@@ -8,13 +8,18 @@ import com.parse.ParseObject;
  */
 @ParseClassName("Menu")
 public class Menu extends ParseObject {
-    public String getDishName(){
-        return getString("dishName");
-    }
+    String type;
+    String image;
     public String getDishType(){
-        return getString("dishType");
+        return getString("type");
     }
     public String getImage(){
         return getString("image");
+    }
+    public void setType(String type){
+        this.type = type;
+    }
+    public void setImage(String image){
+        this.image = image;
     }
 }
