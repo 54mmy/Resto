@@ -1,6 +1,7 @@
 package acc.resto.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class ListViewAdapter extends BaseAdapter {
     ImageLoader imageLoader;
     private List<Menu> menuList = null;
     private ArrayList<Menu> arrayList;
-
+    Resources resources = Resources.getSystem();
     public ListViewAdapter(Context context , List<Menu> menuList){
         this.context = context;
         this.menuList = menuList;
@@ -72,7 +73,14 @@ public class ListViewAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               /* List<OffersData> mItems;
+                mItems = new ArrayList<OffersData>();
 
+
+                mItems.add(new OffersData(resources.getDrawable(R.drawable.pasta_dish), "Pasta dish", "Rs. 200 for two people"));
+                mItems.add(new OffersData(resources.getDrawable(R.drawable.hara_masala), "Hara masala dish","Rs. 350 for two people"));
+                mItems.add(new OffersData(resources.getDrawable(R.drawable.large_panner), "Paneer dish","Rs. 400 for four people"));
+                */
             }
         });
         return convertView;

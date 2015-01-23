@@ -10,7 +10,7 @@
     android:id="@+id/prizescreen"
     android:background="#FFFFFF">
 
-    <ImageView
+    <com.parse.ParseImageView
         android:id="@+id/prizeImg"
         android:layout_width="300dp"
         android:layout_height="200dp"

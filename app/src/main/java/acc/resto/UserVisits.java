@@ -41,7 +41,6 @@ public class UserVisits extends Fragment {
         preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         int count = preferences.getInt(VISIT_COUNT, 1);
         String cnt = String.valueOf(count);
-        btn.setText(cnt);
 
         return view;
     }
@@ -68,6 +67,7 @@ public class UserVisits extends Fragment {
                 switch (count) {
 
                     case 1:
+                        btn.setText("1");
                         Intent intent = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
                         intent.putExtra("button_number", 2);
                         startActivity(intent);
@@ -124,7 +124,7 @@ public class UserVisits extends Fragment {
 
                     case 10:
                         Intent intent10 = new Intent(getActivity().getApplicationContext(), SecurityCode.class);
-                        intent10.putExtra("button_number", 10);
+                        intent10.putExtra("button_number", 11);
                         startActivity(intent10);
                         break;
 

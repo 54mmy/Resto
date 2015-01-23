@@ -19,20 +19,20 @@ import acc.resto.R;
  * Created by Sagar Gopale on 1/13/2015.
  */
 public class Offers extends ListFragment {
+        private int pageNumber;
+        private String title;
+        private Context mContext;
+        private ListView offersList;
+        private List<OffersData> mItems;
 
-    private int pageNumber;
-    private String title;
-    private Context mContext;
-    private ListView offersList;
-    private List<OffersData> mItems;
-
-    public static Offers newInstance(int pageNumber, String title) {
-        Offers offers = new Offers();
+    public static Offers newInstance(int pageNumber,String title)
+    {
+        Offers menu = new Offers();
         Bundle b = new Bundle();
-        b.putInt("offersPageNumber", pageNumber);
-        b.putString("offersTitle", title);
-        offers.setArguments(b);
-        return offers;
+        b.putInt("menuPageNumber",pageNumber);
+        b.putString("menuTitle",title);
+        menu.setArguments(b);
+        return menu;
     }
 
     @Override
@@ -42,14 +42,9 @@ public class Offers extends ListFragment {
         mItems = new ArrayList<OffersData>();
         Resources resources = getResources();
 
-        mItems.add(new OffersData(resources.getDrawable(R.drawable.chinese_food), "20% Off on Chinese food", "Limited period offer"));
-        mItems.add(new OffersData(resources.getDrawable(R.drawable.cocktail_drinks), "10% Off on Cocktail drinks","Limited period offer"));
-        mItems.add(new OffersData(resources.getDrawable(R.drawable.girly_drinks), "30% Off on Girly drinks","Limited period offer"));
-        mItems.add(new OffersData(resources.getDrawable(R.drawable.hard_drinks), "5% Off on Hard drinks","Limited period offer"));
-        mItems.add(new OffersData(resources.getDrawable(R.drawable.pasta_dish), "25% Off on Pasta dish", "Limited period offer"));
-//        mItems.add(new OffersData(resources.getDrawable(R.drawable.soft_drinks), "30% Off on Soft drinks","Limited period offer"));
         mItems.add(new OffersData(resources.getDrawable(R.drawable.hara_masala), "40% Off on Hara masala dish","Limited period offer"));
         mItems.add(new OffersData(resources.getDrawable(R.drawable.large_panner), "12% Off on Paneer dish","Limited period offer"));
+        mItems.add(new OffersData(resources.getDrawable(R.drawable.pasta_dish), "40% Off on Pasta dish","Limited period offer"));
 
         setListAdapter(new OffersAdapter(getActivity(), mItems));
     }
@@ -63,4 +58,5 @@ public class Offers extends ListFragment {
         OffersData item = mItems.get(position);
         Toast.makeText(getActivity(), item.title, Toast.LENGTH_SHORT).show();
     }
-    }
+
+}
