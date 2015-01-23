@@ -1,6 +1,7 @@
 package acc.resto.model;
 
 import com.parse.ParseClassName;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 
 /**
@@ -10,16 +11,11 @@ import com.parse.ParseObject;
 public class Menu extends ParseObject {
     String type;
     String image;
+    public Menu(){}
     public String getDishType(){
         return getString("type");
     }
-    public String getImage(){
-        return getString("image");
-    }
-    public void setType(String type){
-        this.type = type;
-    }
-    public void setImage(String image){
-        this.image = image;
+    public ParseFile getImage(){
+        return getParseFile("image");
     }
 }
