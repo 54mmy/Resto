@@ -138,6 +138,7 @@ public class LoginActivity extends FragmentActivity {
     public void getData() {
         Intent intent = new Intent(this, Record.class);
         startActivity(intent);
+        finish();
     }
 
     public void showAct() {
