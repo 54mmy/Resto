@@ -1,40 +1,78 @@
 package acc.resto.fragments;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.parse.ParseObject;
+import com.parse.ParseQueryAdapter;
 
 import acc.resto.OffersAdapter;
-import acc.resto.OffersData;
 import acc.resto.R;
 
 /**
  * Created by Sagar Gopale on 1/13/2015.
  */
-public class Offers extends ListFragment {
+public class Offers extends Fragment {
         private int pageNumber;
         private String title;
         private Context mContext;
+        private OffersAdapter offersAdapter;
         private ListView offersList;
-        private List<OffersData> mItems;
+        private ParseQueryAdapter<ParseObject> mainAdapter;
+
 
     public static Offers newInstance(int pageNumber,String title)
     {
-        Offers menu = new Offers();
+        Offers offers = new Offers();
         Bundle b = new Bundle();
-        b.putInt("menuPageNumber",pageNumber);
-        b.putString("menuTitle",title);
-        menu.setArguments(b);
-        return menu;
+        b.putInt("offersPageNumber",pageNumber);
+        b.putString("offersTitle",title);
+        offers.setArguments(b);
+        return offers;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+//        ParseObject.registerSubclass(acc.resto.model.Offers.class);
+        pageNumber = getArguments().getInt("offerPageNumber");
+        title = getArguments().getString("offerTitle");
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.offer_list_view, container , false);
+        mainAdapter = new ParseQueryAdapter<ParseObject>(getActivity(), "Offer");
+        mainAdapter.setImageKey("image");
+        mainAdapter.setTextKey("title");
+        mainAdapter.setTextKey("description");
+
+        offersAdapter = new OffersAdapter(getActivity());
+
+        offersList = (ListView) view.findViewById(R.id.offerlistview);
+        offersList.setAdapter(mainAdapter);
+        mainAdapter.loadObjects();
+
+        if (offersList.getAdapter() == mainAdapter) {
+            offersList.setAdapter(offersAdapter);
+            mainAdapter.loadObjects();
+        } else {
+            offersList.setAdapter(mainAdapter);
+            mainAdapter.loadObjects();
+        }
+
+
+        return view;
+    }
+
+/*
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,5 +96,5 @@ public class Offers extends ListFragment {
         OffersData item = mItems.get(position);
         Toast.makeText(getActivity(), item.title, Toast.LENGTH_SHORT).show();
     }
-
+*/
 }

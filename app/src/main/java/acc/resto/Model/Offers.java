@@ -9,6 +9,7 @@ public class Offers extends ParseObject {
     String image;
     String title;
     String description;
+    Offers(){}
     public String getImage(){
         return getString("image");
     }
@@ -17,14 +18,5 @@ public class Offers extends ParseObject {
     }
     public String getDescription(){
         return getString("description");
-    }
-    public void setTitle(String title){
-        this.title = title;
-    }
-    public void setDescription(String description){
-        this.description = description;
-    }
-    public void setImage(String image){
-        this.image = image;
     }
 }

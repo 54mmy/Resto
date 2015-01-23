@@ -1,15 +1,55 @@
 package acc.resto;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-import java.util.List;
 
-public class OffersAdapter extends ArrayAdapter<OffersData> {
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseImageView;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
+
+public class OffersAdapter extends ParseQueryAdapter<ParseObject>{
+    public OffersAdapter(Context context) {
+        super(context, new QueryFactory<ParseObject>() {
+            @Override
+            public ParseQuery create() {
+                ParseQuery query = new ParseQuery("Offer");
+                return query;
+            }
+        });
+    }
+
+    @Override
+    public View getItemView(ParseObject object, View v, ViewGroup parent) {
+        if (v == null) {
+            v = View.inflate(getContext(), R.layout.list_item, null);
+        }
+        super.getItemView(object, v, parent);
+
+        ParseImageView offerImage = (ParseImageView) v.findViewById(R.id.l_icon);
+        ParseFile photoFile = object.getParseFile("image");
+        if (photoFile != null) {
+            offerImage.setParseFile(photoFile);
+            final View finalV = v;
+            offerImage.loadInBackground(new GetDataCallback() {
+                @Override
+                public void done(byte[] bytes, ParseException e) {
+                }
+            });
+        }
+        TextView titleTextView = (TextView) v.findViewById(R.id.l_title);
+        titleTextView.setText(object.getString("title"));
+
+        TextView descriptionTextView = (TextView) v.findViewById(R.id.l_description);
+        descriptionTextView.setText(object.getString("description"));
+        return v;
+    }
+    /*
     public OffersAdapter(Context context, List<OffersData> item) {
         super(context, R.layout.list_item, item);
     }
@@ -36,10 +76,5 @@ public class OffersAdapter extends ArrayAdapter<OffersData> {
 
         return convertView;
     }
-
-    private static class ViewHolder {
-        ImageView list_icon;
-        TextView list_title;
-        TextView list_Description;
-    }
+*/
 }
