@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_user_visits">UserVisits</string>
-    <string name="facebook_app_id">310729805787046</string>
+    <string name="facebook_app_id">352409638276003</string>
 
     <string-array name="dishName">
         <item>Fish Cutlet</item>

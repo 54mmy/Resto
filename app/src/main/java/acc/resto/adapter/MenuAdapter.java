@@ -54,8 +54,8 @@ public class MenuAdapter extends ParseQueryAdapter<ParseObject> {
 
             });
         }
-        TextView dishName = (TextView) v.findViewById(R.id.dish_name);
-        dishName.setText(object.getString("type"));
+   //     TextView dishName = (TextView) v.findViewById(R.id.dish_name);
+   //     dishName.setText(object.getString("type"));
         return  v;
     }
 }

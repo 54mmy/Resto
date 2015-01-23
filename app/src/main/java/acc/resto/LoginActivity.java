@@ -115,10 +115,8 @@ public class LoginActivity extends FragmentActivity {
         progressDialog = ProgressDialog.show(LoginActivity.this, "", "Logging IN..", true);
         List<String> permissions = new ArrayList<String>();
         permissions.add("public_profile");
-        permissions.add("user_about_me");
         permissions.add("user_location");
         permissions.add("email");
-        permissions.add("user_photos");
 
         ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
             @Override
