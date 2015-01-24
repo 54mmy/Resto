@@ -14,7 +14,8 @@
         android:background="@drawable/frame" >
 
         <!-- the icon view -->
-        <ImageView android:id="@+id/l_icon"
+        <com.parse.ParseImageView
+            android:id="@+id/l_icon"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:padding="5dp"

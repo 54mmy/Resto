@@ -1,36 +1,37 @@
 package acc.resto.fragments;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.parse.ParseObject;
+import com.parse.ParseQueryAdapter;
 
 import acc.resto.OffersAdapter;
-import acc.resto.OffersData;
 import acc.resto.R;
 
 /**
  * Created by Sagar Gopale on 1/13/2015.
  */
-public class Offers extends ListFragment {
+public class Offers extends Fragment {
+        private int pageNumber;
+        private String title;
+        private Context mContext;
+        private OffersAdapter offersAdapter;
+        private ListView offersList;
+        private ParseQueryAdapter<ParseObject> mainAdapter;
 
-    private int pageNumber;
-    private String title;
-    private Context mContext;
-    private ListView offersList;
-    private List<OffersData> mItems;
 
-    public static Offers newInstance(int pageNumber, String title) {
+    public static Offers newInstance(int pageNumber,String title)
+    {
         Offers offers = new Offers();
         Bundle b = new Bundle();
-        b.putInt("offersPageNumber", pageNumber);
-        b.putString("offersTitle", title);
+        b.putInt("offersPageNumber",pageNumber);
+        b.putString("offersTitle",title);
         offers.setArguments(b);
         return offers;
     }
@@ -38,18 +39,50 @@ public class Offers extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = getActivity();
+//        ParseObject.registerSubclass(acc.resto.model.Offers.class);
+        pageNumber = getArguments().getInt("offerPageNumber");
+        title = getArguments().getString("offerTitle");
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.offer_list_view, container , false);
+        mainAdapter = new ParseQueryAdapter<ParseObject>(getActivity(), "Offer");
+        mainAdapter.setImageKey("image");
+        mainAdapter.setTextKey("title");
+        mainAdapter.setTextKey("description");
+
+        offersAdapter = new OffersAdapter(getActivity());
+
+        offersList = (ListView) view.findViewById(R.id.offerlistview);
+        offersList.setAdapter(mainAdapter);
+        mainAdapter.loadObjects();
+
+        if (offersList.getAdapter() == mainAdapter) {
+            offersList.setAdapter(offersAdapter);
+            mainAdapter.loadObjects();
+        } else {
+            offersList.setAdapter(mainAdapter);
+            mainAdapter.loadObjects();
+        }
+
+
+        return view;
+    }
+
+/*
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         mItems = new ArrayList<OffersData>();
         Resources resources = getResources();
 
-       // mItems.add(new OffersData(resources.getDrawable(R.drawable.chinese_food), "20% Off on Chinese food", "Limited period offer"));
-       // mItems.add(new OffersData(resources.getDrawable(R.drawable.cocktail_drinks), "10% Off on Cocktail drinks","Limited period offer"));
-      //  mItems.add(new OffersData(resources.getDrawable(R.drawable.girly_drinks), "30% Off on Girly drinks","Limited period offer"));
-      //  mItems.add(new OffersData(resources.getDrawable(R.drawable.hard_drinks), "5% Off on Hard drinks","Limited period offer"));
-        mItems.add(new OffersData(resources.getDrawable(R.drawable.pasta_dish), "25% Off on Pasta dish", "Limited period offer"));
-//        mItems.add(new OffersData(resources.getDrawable(R.drawable.soft_drinks), "30% Off on Soft drinks","Limited period offer"));
         mItems.add(new OffersData(resources.getDrawable(R.drawable.hara_masala), "40% Off on Hara masala dish","Limited period offer"));
         mItems.add(new OffersData(resources.getDrawable(R.drawable.large_panner), "12% Off on Paneer dish","Limited period offer"));
+        mItems.add(new OffersData(resources.getDrawable(R.drawable.pasta_dish), "40% Off on Pasta dish","Limited period offer"));
 
         setListAdapter(new OffersAdapter(getActivity(), mItems));
     }
@@ -63,4 +96,5 @@ public class Offers extends ListFragment {
         OffersData item = mItems.get(position);
         Toast.makeText(getActivity(), item.title, Toast.LENGTH_SHORT).show();
     }
-    }
+*/
+}
