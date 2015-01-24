@@ -67,6 +67,14 @@ public class Menu extends Fragment {
         listView.setAdapter(mainAdapter);
         mainAdapter.loadObjects();
 
+        if (listView.getAdapter() == mainAdapter) {
+            listView.setAdapter(menuAdapter);
+            menuAdapter.loadObjects();
+        } else {
+            listView.setAdapter(mainAdapter);
+            mainAdapter.loadObjects();
+        }
+
         return view;
     }
 }
