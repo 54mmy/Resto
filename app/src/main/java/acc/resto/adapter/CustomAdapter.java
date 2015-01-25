@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -29,13 +30,13 @@ public class CustomAdapter extends ArrayAdapter<Reviews> {
         this.reviews = rs;
     }
 
-    private int colors[] = new int[] {Color.parseColor("#FFA633"),Color.parseColor("#FFFFFF")};
+//    private int colors[] = new int[] {Color.parseColor("#FFA633"),Color.parseColor("#FFFFFF")};
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
         Reviews listReview = reviews.get(position);
-        int colorPos = position%colors.length;
+  //      int colorPos = position%colors.length;
 
         if(convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.data,parent,false);
@@ -51,17 +52,19 @@ public class CustomAdapter extends ArrayAdapter<Reviews> {
        // ImageView imageView = (ImageView) convertView.findViewById(R.id.img);
         TextView dish = (TextView) convertView.findViewById(R.id.dish);
         TextView review = (TextView) convertView.findViewById(R.id.review);
-        ImageButton imageButton = (ImageButton) convertView.findViewById(R.id.share);
+//        ImageButton imageButton = (ImageButton) convertView.findViewById(R.id.share);
+        RatingBar ratingBar = (RatingBar) convertView.findViewById(R.id.ratingBar);
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
+/*        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
        //         postToFacebook(context);
             }
-        });
+        }); */
 
         dish.setText(listReview.getDish());
         review.setText(listReview.getReview());
+        ratingBar.setRating(Float.parseFloat(listReview.getRating()));
 
         return convertView;
     }

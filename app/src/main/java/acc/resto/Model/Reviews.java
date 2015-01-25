@@ -29,4 +29,8 @@ public class Reviews extends ParseObject {
         put("review",review);
     }
 
+    public String getRating(){ return getString("rating");}
+
+    public  void setRating(String rating) { put("rating",rating);}
+
 }

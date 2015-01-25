@@ -58,7 +58,6 @@ public class LoginActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.login);
-        getKeyHash();
 
 //        Parse.enableLocalDatastore(this);
  //       Parse.initialize(this, "G9RoZuVR9RNmNcw5Mppcnao6TrvF5QaAVUqrf5OI", "WYjiqHNRZtSo7xifBr0HmljpWJdytXePCsfCfTBM");
@@ -78,20 +77,6 @@ public class LoginActivity extends FragmentActivity {
 
     }
 
-    private void getKeyHash() {
-        try {
-            PackageInfo info =     getPackageManager().getPackageInfo("acc.resto",     PackageManager.GET_SIGNATURES);
-            for (android.content.pm.Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String sign= Base64.encodeToString(md.digest(), Base64.DEFAULT);
-                Log.e("MY KEY HASH:", sign);
-                //  Toast.makeText(getApplicationContext(),sign,     Toast.LENGTH_LONG).show();
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-        } catch (NoSuchAlgorithmException e) {
-        }
-    }
 
     @Override
     public void onBackPressed() {

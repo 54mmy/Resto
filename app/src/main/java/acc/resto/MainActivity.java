@@ -2,8 +2,12 @@ package acc.resto;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,13 +16,34 @@ import com.facebook.AppEventsLogger;
 import net.hockeyapp.android.FeedbackManager;
 import net.hockeyapp.android.Tracking;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class MainActivity extends Activity {
 
     private static int SPLASH_TIME_OUT = 3000;
+
+
+    private void getKeyHash() {
+        try {
+            PackageInfo info =     getPackageManager().getPackageInfo("acc.resto",     PackageManager.GET_SIGNATURES);
+            for (android.content.pm.Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String sign= Base64.encodeToString(md.digest(), Base64.DEFAULT);
+                Log.e("MY KEY HASH:", sign);
+                //  Toast.makeText(getApplicationContext(),sign,     Toast.LENGTH_LONG).show();
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+        } catch (NoSuchAlgorithmException e) {
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getKeyHash();
         new Handler().postDelayed(new Runnable() {
             /*
              * Showing splash screen with a timer and displaying website name.

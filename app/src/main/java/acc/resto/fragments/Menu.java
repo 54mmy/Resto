@@ -2,12 +2,14 @@ package acc.resto.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.parse.ParseFile;
@@ -16,6 +18,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
 import acc.resto.R;
+import acc.resto.SubMenu;
 import acc.resto.adapter.MenuAdapter;
 
 /**
@@ -44,12 +47,8 @@ public class Menu extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
-        ParseObject.registerSubclass(acc.resto.model.Menu.class);
         pageNumber = getArguments().getInt("menuPageNumber");
         title = getArguments().getString("menuTitle");
-
-
-
     }
 
 
@@ -67,7 +66,7 @@ public class Menu extends Fragment {
         listView.setAdapter(mainAdapter);
         mainAdapter.loadObjects();
 
-        if (listView.getAdapter() == mainAdapter) {
+       if (listView.getAdapter() == mainAdapter) {
             listView.setAdapter(menuAdapter);
             menuAdapter.loadObjects();
         } else {
@@ -75,6 +74,13 @@ public class Menu extends Fragment {
             mainAdapter.loadObjects();
         }
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), SubMenu.class);
+                    startActivity(intent);
+            }
+        });
         return view;
     }
 }

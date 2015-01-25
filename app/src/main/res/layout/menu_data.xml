@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:background="@color/frame_background"
+    android:padding="5dp" >
 
-    <com.parse.ParseImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:background="#80000000"/>
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- the innner view - provides the white rectangle -->
+    <RelativeLayout android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/dish_name"
-        android:layout_gravity="bottom" />
-</LinearLayout>
+        android:background="@drawable/frame" >
+
+        <!-- the icon view -->
+        <com.parse.ParseImageView android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:layout_alignParentLeft="true"/>
+
+        <!-- the container view for the title and description -->
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_centerVertical="true">
+
+            <!-- the title view -->
+            <TextView android:id="@+id/dish_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/background_floating_material_dark" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

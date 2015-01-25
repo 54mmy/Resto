@@ -73,6 +73,9 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
 
+        <activity android:name=".SubMenu"
+            android:label="Resto"
+            android:theme="@style/ActionTheme"/>
 
         <activity android:name="com.facebook.LoginActivity"
             android:label="@string/app_name">

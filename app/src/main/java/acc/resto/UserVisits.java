@@ -37,10 +37,12 @@ public class UserVisits extends Fragment {
         View view = inflater.inflate(R.layout.activity_user_visits, container , false);
 
         btn = (Button) view.findViewById(R.id.btn);
-
         preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         int count = preferences.getInt(VISIT_COUNT, 1);
         String cnt = String.valueOf(count);
+        if(cnt.equals("1")){
+            btn.setText("1");
+        }
 
         return view;
     }

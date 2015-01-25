@@ -30,8 +30,6 @@ public class WriteReview extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addreview);
-        ParseObject.registerSubclass(Reviews.class);
-
         String dishes[] = getResources().getStringArray(R.array.dishName);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishes);
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.dish);
@@ -40,18 +38,28 @@ public class WriteReview extends Activity {
 
         review = (EditText) findViewById(R.id.review);
         imageButton = (ImageButton) findViewById(R.id.imageButton2);
-        addListenerOnRatingBar();
+        final RatingBar ratingBar = (RatingBar) findViewById(R.id.rating);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating,
+                                        boolean fromUser) {
+
+                Toast.makeText(getApplicationContext(), String.valueOf(rating), Toast.LENGTH_LONG).show();
+
+            }
+        });
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String name = autoCompleteTextView.getText().toString();
                 String rev = review.getText().toString();
+                String rat = String.valueOf(ratingBar.getRating());
 
                 if(name.length()>0 && rev.length()>0) {
                     Reviews r = new Reviews();
                     r.setDish(name);
                     r.setReview(rev);
+                    r.setRating(rat);
                     r.saveInBackground();
                     Toast.makeText(getApplicationContext(), "Thank you for Submitting your review...!", Toast.LENGTH_LONG).show();
                     backToReviewList();
@@ -64,22 +72,10 @@ public class WriteReview extends Activity {
             }
         });
     }
-    public void addListenerOnRatingBar() {
-
-       RatingBar ratingBar = (RatingBar) findViewById(R.id.rating);        //if rating value is changed,
-        //display the current rating value in the result (textview) automatically
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            public void onRatingChanged(RatingBar ratingBar, float rating,
-                                        boolean fromUser) {
-
-                Toast.makeText(getApplicationContext(), String.valueOf(rating), Toast.LENGTH_LONG).show();
-
-            }
-        });
-    }
 
     public void backToReviewList() {
         Intent i = new Intent(this, ListReviews.class);
         startActivity(i);
+        finish();
     }
 }
