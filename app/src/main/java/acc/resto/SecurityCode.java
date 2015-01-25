@@ -70,6 +70,7 @@ public class SecurityCode extends Activity {
 
                                 Intent intent = new Intent(SecurityCode.this, PrizeActivity.class);
                                 startActivity(intent);
+                                overridePendingTransition(R.anim.left_push,R.anim.right_push);
                                 finish();
 
                             } else {
