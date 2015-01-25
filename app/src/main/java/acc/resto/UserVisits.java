@@ -41,6 +41,12 @@ public class UserVisits extends Fragment {
         preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         int count = preferences.getInt(VISIT_COUNT, 1);
         String cnt = String.valueOf(count);
+        if(cnt.equals("1")){
+            btn.setText("1");
+        }
+        if(cnt.equals("11")){
+            btn.setBackgroundResource(R.drawable.thank_you);
+        }
 
         return view;
     }

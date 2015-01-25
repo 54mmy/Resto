@@ -11,10 +11,10 @@
         android:id="@+id/btn"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:textColor="#FFA633"
+        android:textColor="#FFFFFF"
         android:background="@drawable/round_button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textSize="100dp"/>
+        android:textSize="200dp"/>
 
 </RelativeLayout>
