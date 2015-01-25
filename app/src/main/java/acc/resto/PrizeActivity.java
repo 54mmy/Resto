@@ -181,6 +181,7 @@ public class PrizeActivity extends Activity {
 
             case 11:
                 UserVisits.btn.setText("");
+                UserVisits.btn.setBackgroundResource(R.drawable.thank_you);
                 ParseQuery query10 = new ParseQuery("VisitOffers");
                 query10.getInBackground("LCVAVc5LiD", new GetCallback<ParseObject>() {
                     public void done(ParseObject object, ParseException e) {
