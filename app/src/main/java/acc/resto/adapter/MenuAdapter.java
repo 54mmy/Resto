@@ -44,7 +44,6 @@ public class MenuAdapter extends ParseQueryAdapter<ParseObject> {
         ParseFile photoFile = object.getParseFile("image");
         if(photoFile != null){
             menuImage.setParseFile(photoFile);
-            final View finalV = v;
             menuImage.loadInBackground(new GetDataCallback() {
                 @Override
                 public void done(byte[] bytes, ParseException e) {
@@ -54,8 +53,8 @@ public class MenuAdapter extends ParseQueryAdapter<ParseObject> {
 
             });
         }
-   //     TextView dishName = (TextView) v.findViewById(R.id.dish_name);
-   //     dishName.setText(object.getString("type"));
+        TextView dishName = (TextView) v.findViewById(R.id.dish_name);
+        dishName.setText(object.getString("type"));
         return  v;
     }
 }
